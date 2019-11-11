@@ -1,0 +1,63 @@
+# Packages
+alias cat='bat'
+alias ls='exa'
+alias edex="eDEX-UI.Linux.x86_64.AppImage"
+
+# specifics
+alias sl='ls'
+alias l='ls -alF'
+alias ll='ls -l'
+alias la='ls -a'
+alias lg='l --git'
+alias rgh='rg --hidden'
+alias rgi='rg -i'
+alias rgg="rg --ignore"
+alias rgig="rg -i --ignore"
+alias cjq="clip -o | jq"
+
+# Oopsies
+alias gs="g s"
+
+# Utilities
+alias ipython="python3.7 -m IPython"
+alias mouse='python3 -c "import pyautogui; print(pyautogui.position())"'
+alias clip='xclip -r -selection clipboard'
+alias myip='dig @resolver1.opendns.com ANY myip.opendns.com +short'
+alias sha1='openssl sha1'
+alias get="sudo apt install -y"
+alias psg="ps -aux | grep"
+alias mv="mv -i"
+alias murder="killall -KILL"
+alias tmp="cd ~/tmp"
+alias how="how2"
+alias rma="rm -rf /opt/aquascans"
+alias src="source ~/.zshrc"
+
+# Docker
+alias dr="docker run --rm -it"
+alias drv="dr -v /var/run/docker.sock:/var/run/docker.sock"
+alias di="docker images"
+alias dvp="docker volume prune"
+alias dcp="docker container prune"
+alias dp="docker ps"
+alias dpa="docker ps -a"
+db() { docker build -t yuvalmeshorer/$1 .; }
+dbc() { docker build --no-cache -t yuvalmeshorer/$1 .; }
+
+# Lazy
+alias get_memory="free --mega | head -2 | tail -1 | cut -d ' ' -f"
+alias m="echo \$(get_memory 20)\$(get_memory 19)\$(get_memory 18)/$(get_memory 11)"
+alias g=git
+alias d=docker
+alias c="code ."
+alias gt='gnome-terminal'
+alias rp=realpath
+alias i=ipython
+alias i2="python -m IPython"
+alias sc="s;c"
+alias e="exit"
+
+# Fun
+alias launch='xdg-open'
+alias gay='toilet -t -f mono12 -F border -F gay'
+alias weather='curl wttr.in'

@@ -1,0 +1,35 @@
+path() {
+	realpath $1 | clip -r;
+}
+
+# https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
+dotSlash=""
+for i in `seq 1 10`
+do
+    dotSlash=${dotSlash}'../';
+    baseName=".${i}"
+    alias $baseName="cd ${dotSlash}"
+done
+
+# From Lidor Dublin
+fatties() {
+    ps axo rss,comm,pid \
+        | awk '{ proc_list[$2]++; proc_list[$2 "," 1] += $1; } \
+    END { for (proc in proc_list) { printf("%d\t%s\n", \
+        proc_list[proc "," 1],proc); }}' | sort -n | tail -n 10 | sort -rn \
+        | awk '{$1/=1024;printf "%.0fMB\t",$1}{print $2}'
+}
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' 'lfcd\n'
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:-1,bg:-1,hl:#5f87af --color=fg+:#000000,bg+:#ff0051,hl+:#000000 --color=info:#7a7a52,prompt:#ffffff,pointer:#ffffff --color=marker:#87ff00,spinner:#ffffff,header:#87afaf'
