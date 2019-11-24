@@ -28,11 +28,14 @@
 	sur = submodule update --remote
 	u = update
 	update = !git fetch && git pull origin
+
 [user]
 	email = yuval.meshorer@aquasec.com
 	name = Yuval Meshorer
+
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = vim
+
 [merge]
 	tool = vimdiff

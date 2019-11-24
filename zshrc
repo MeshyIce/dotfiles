@@ -4,7 +4,7 @@ ZSH_THEME="yuval"
 
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOCONNECT=false
-export ZSH_TMUX_AUTOQUIT=false
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
 
 plugins=(git forgit tmux zsh-autosuggestions zsh-syntax-highlighting vi-mode history-substring-search colored-man-pages command-not-found fzf)
 
@@ -29,10 +29,10 @@ setopt HIST_BEEP
 alias nano=vim
 
 bindkey '^K' kill-line
+bindkey '\e[1;5A' history-beginning-search-backward
+bindkey '\e[1;5B' history-beginning-search-forward
 bindkey '\e[1;5C' forward-word
 bindkey '\e[1;5D' backward-word
-
-
 
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238#issuecomment-389324292
 # This speeds up pasting w/ autosuggest
