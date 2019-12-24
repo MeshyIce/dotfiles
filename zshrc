@@ -4,9 +4,11 @@ ZSH_THEME="yuval"
 
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOCONNECT=false
+export ZSH_TMUX_AUTOQUIT=true
+export ZSH_TMUX_UNICODE=true
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
 
-plugins=(git forgit tmux zsh-autosuggestions zsh-syntax-highlighting vi-mode history-substring-search colored-man-pages command-not-found fzf)
+plugins=(git forgit tmux zsh-autosuggestions zsh-syntax-highlighting history-substring-search colored-man-pages command-not-found fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,35 +42,8 @@ pasteinit() {
   OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
   zle -N self-insert url-quote-magic
 }
-
 pastefinish() {
   zle -N self-insert $OLD_SELF_INSERT
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
-
-# Remove mode switching delay.
-KEYTIMEOUT=1
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-
-# Use beam shape cursor on startup.
-echo -ne '\e[5 q'
-
-# Use beam shape cursor for each new prompt.
-preexec() {
-   echo -ne '\e[5 q'
-}

@@ -2,8 +2,10 @@
 	a = add
 	ap = add -p
 	b = branch
+    bD = branch -d
 	c = commit
 	ca = commit --amend
+    cb = checkout -b
 	cd = diff-tree --no-commit-id --name-only -r
 	co = checkout
 	cm = checkout master
@@ -22,12 +24,14 @@
 	phf = push -f origin HEAD
 	pm = pull origin master
 	po = pull origin
+    rbc = rebase --continue
+    rbom = rebase origin/master
 	s = status --short
 	st = status
 	sui = submodule update --init
 	sur = submodule update --remote
 	u = update
-	update = !git fetch && git pull origin
+	update = !git fetch -ap && git pull origin
 
 [user]
 	email = yuval.meshorer@aquasec.com
