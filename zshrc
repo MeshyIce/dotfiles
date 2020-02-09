@@ -14,7 +14,7 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.aliases 2>/dev/null
 source ~/.exports 2>/dev/null
-source ~/.aqua 2>/dev/null
+source ~/.aquarc 2>/dev/null
 source ~/.functions 2>/dev/null
 
 unsetopt AUTO_CD

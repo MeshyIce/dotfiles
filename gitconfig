@@ -3,12 +3,16 @@
 	ap = add -p
 	b = branch
     bD = branch -d
-	c = commit
+    c- = checkout --
+    c = commit
 	ca = commit --amend
+    cae = commit --amend --no-edit
     cb = checkout -b
 	cd = diff-tree --no-commit-id --name-only -r
 	co = checkout
 	cm = checkout master
+    cp = cherry-pick
+    cpc = cherry-pick --continue
 	d = diff
 	dc = diff --cached
 	dt = difftool
@@ -19,15 +23,21 @@
 	lo = log --oneline
 	lp = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
 	ls = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+    nb = checkout -B
 	p = push
 	ph = push origin HEAD
 	phf = push -f origin HEAD
 	pm = pull origin master
 	po = pull origin
+    rb = rebase
     rbc = rebase --continue
     rbom = rebase origin/master
+    rbs = rebase --skip
+    rH = reset HEAD
 	s = status --short
 	st = status
+    sh = stash
+    shp = stash pop
 	sui = submodule update --init
 	sur = submodule update --remote
 	u = update
@@ -36,6 +46,8 @@
 [user]
 	email = yuval.meshorer@aquasec.com
 	name = Yuval Meshorer
+	username = Meshorer
+	password = RnRNqXPWgSSQ4f4mFYVA
 
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
@@ -43,3 +55,5 @@
 
 [merge]
 	tool = vimdiff
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/

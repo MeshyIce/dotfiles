@@ -32,7 +32,7 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:-1,bg:-1,hl:#5f87af --color=fg+:#000000,bg+:#ff0051,hl+:#000000 --color=info:#7a7a52,prompt:#ffffff,pointer:#ffffff --color=marker:#87ff00,spinner:#ffffff,header:#87afaf'
+export FZF_DEFAULT_OPTS=" --color fg:-1,bg:-1,hl:230,fg+:3,bg+:233,hl+:230 --color info:150,prompt:110,spinner:150,pointer:167,marker:174"
 
 #bindkey -s '^p' 'skid\n'
 #bindkey -s '^n' 'notskid\n'
