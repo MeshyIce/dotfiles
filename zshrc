@@ -8,7 +8,7 @@ export ZSH_TMUX_AUTOQUIT=true
 export ZSH_TMUX_UNICODE=true
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
 
-plugins=(git forgit tmux zsh-autosuggestions zsh-syntax-highlighting history-substring-search colored-man-pages command-not-found fzf)
+plugins=(git tmux zsh-autosuggestions zsh-syntax-highlighting history-substring-search colored-man-pages command-not-found fzf)
 
 source $ZSH/oh-my-zsh.sh
 
