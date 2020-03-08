@@ -14,7 +14,7 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.aliases 2>/dev/null
 source ~/.exports 2>/dev/null
-source ~/.aquarc 2>/dev/null
+source ~/.aquarc.sh 2>/dev/null
 source ~/.functions 2>/dev/null
 
 unsetopt AUTO_CD
@@ -29,12 +29,19 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
 
 alias nano=vim
+alias -s go=vim
+alias -g p='|'
+alias -g aa='&&'
 
+bindkey '^U' backward-kill-line
 bindkey '^K' kill-line
 bindkey '\e[1;5A' history-beginning-search-backward
 bindkey '\e[1;5B' history-beginning-search-forward
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
 bindkey '\e[1;5C' forward-word
 bindkey '\e[1;5D' backward-word
+bindkey '^ ' autosuggest-accept
 
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238#issuecomment-389324292
 # This speeds up pasting w/ autosuggest
@@ -47,3 +54,25 @@ pastefinish() {
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
+zstyle ':completion:*' expand prefix suffix
+
+# Always have an I-beam cursor
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+precmd_functions+=(_fix_cursor)
+
+# Auto Expand Global Aliases (alias -g)
+globalias() {
+   if [[ $LBUFFER =~ ' aa| p$' ]]; then
+     zle _expand_alias
+     zle expand-word
+   fi
+   zle self-insert
+}
+zle -N globalias
+bindkey " " globalias
+#bindkey "^z" magic-space           # control-space to bypass completion
+bindkey -M isearch " " magic-space # normal space during searches
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -21,6 +21,7 @@ alias mv="mv -i"
 alias tmp="cd ~/tmp"
 alias src="source ~/.zshrc"
 alias gow="goimports -w"
+alias clip='xclip -sel c'
 
 # Docker
 alias dr="docker run --rm -it"
@@ -43,4 +44,4 @@ alias c="code ."
 alias i=ipython
 alias i2="python -m IPython"
 alias sc="s;c"
-lias e="exit"
+alias e="exit"
