@@ -1,4 +1,4 @@
-export ZSH="/home/yuval/.oh-my-zsh"
+export ZSH="/home/$USER/.oh-my-zsh"
 
 ZSH_THEME="yuval"
 

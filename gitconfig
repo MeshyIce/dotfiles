@@ -44,6 +44,10 @@
 	u = update
 	update = !git fetch -ap && git pull origin
 
+[user]
+	email = yuval.meshorer@aquasec.com
+	name = Yuval Meshorer
+
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = vim
