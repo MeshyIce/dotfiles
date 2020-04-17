@@ -1,47 +1,23 @@
 # Packages
-alias cat='bat'
-alias ls='exa'
+alias cat=bat
+alias ls=exa
+alias grep=rg
 
-# specifics
+# Specifics
 alias sl='ls'
 alias l='ls -alF'
 alias ll='ls -l'
 alias la='ls -a'
-alias lg='l --git'
-alias cjq="clip -o | jq"
-
-# Oopsies
-alias gs="g s"
+alias cjq='clip -o | jq'
 
 # Utilities
-alias ipython="python3.7 -m IPython"
 alias myip='dig @resolver1.opendns.com ANY myip.opendns.com +short'
-alias get="sudo apt install -y"
-alias mv="mv -i"
-alias tmp="cd ~/tmp"
+alias get='sudo apt install -y'
+alias mv='mv -i'
+alias rm='rm -i'
 alias src="source ~/.zshrc"
-alias gow="goimports -w"
 alias clip='xclip -sel c'
-
-# Docker
-alias dr="docker run --rm -it"
-alias drv="dr -v /var/run/docker.sock:/var/run/docker.sock"
-alias di="docker images"
-alias dvp="docker volume prune -f"
-alias dcp="docker container prune -f"
-alias dsp="docker system prune -f"
-alias dp="docker ps"
-alias dpa="docker ps -a"
-db() { docker build -t yuvalmeshorer/$1 .; }
-dbc() { docker build --no-cache -t yuvalmeshorer/$1 .; }
 
 # Lazy
 alias get_memory="free --mega | head -2 | tail -1 | cut -d ' ' -f"
 alias m="echo \$(get_memory 20)\$(get_memory 19)\$(get_memory 18)/$(get_memory 11)"
-alias g=git
-alias d=docker
-alias c="code ."
-alias i=ipython
-alias i2="python -m IPython"
-alias sc="s;c"
-alias e="exit"

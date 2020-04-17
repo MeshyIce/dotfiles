@@ -7,7 +7,8 @@
 	c = commit
 	ca = commit --amend
 	cae = commit --amend --no-edit
-	caephf = !git commit --amend --no-edit && git push -f origin HEAD
+    caea = commit --amend --no-edit --reset-author
+	capf = !git commit --amend --no-edit --reset-author && git push -f origin HEAD
 	cb = checkout -b
 	cd = diff-tree --no-commit-id --name-only -r
 	co = checkout
@@ -22,8 +23,6 @@
 	la = "!git config -l | grep alias | cut -c 7-"
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lo = log --oneline
-	lp = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
-	ls = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
 	nb = checkout -B
 	p = push
 	ph = push origin HEAD
@@ -43,10 +42,6 @@
 	sur = submodule update --remote
 	u = update
 	update = !git fetch -ap && git pull origin
-
-[user]
-	email = yuval.meshorer@aquasec.com
-	name = Yuval Meshorer
 
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX

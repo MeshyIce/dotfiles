@@ -14,11 +14,9 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.aliases 2>/dev/null
 source ~/.exports 2>/dev/null
-source ~/.aquarc.sh 2>/dev/null
 source ~/.functions 2>/dev/null
 
 unsetopt AUTO_CD
-setopt rmstarsilent
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
@@ -27,11 +25,9 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
+setopt rmstarsilent
 
 alias nano=vim
-alias -s go=vim
-alias -g p='|'
-alias -g aa='&&'
 
 bindkey '^U' backward-kill-line
 bindkey '^K' kill-line
@@ -62,17 +58,5 @@ _fix_cursor() {
 }
 precmd_functions+=(_fix_cursor)
 
-# Auto Expand Global Aliases (alias -g)
-globalias() {
-   if [[ $LBUFFER =~ ' aa| p$' ]]; then
-     zle _expand_alias
-     zle expand-word
-   fi
-   zle self-insert
-}
-zle -N globalias
-bindkey " " globalias
-#bindkey "^z" magic-space           # control-space to bypass completion
-bindkey -M isearch " " magic-space # normal space during searches
-
+# Enable FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
