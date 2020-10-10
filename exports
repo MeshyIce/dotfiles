@@ -1,0 +1,2 @@
+export LESS='-RF'
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:-1,bg:-1,hl:#5f87af --color=fg+:#000000,bg+:#ff0051,hl+:#000000 --color=info:#7a7a52,prompt:#ffffff,pointer:#ffffff --color=marker:#87ff00,spinner:#ffffff,header:#87afaf'

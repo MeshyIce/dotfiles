@@ -2,19 +2,18 @@
 	a = add
 	ap = add -p
 	b = branch
-	bD = branch -d
-	c- = checkout --
+    bd = branch -D
 	c = commit
 	ca = commit --amend
-	cae = commit --amend --no-edit
+    cae = commit --amend --no-edit
     caea = commit --amend --no-edit --reset-author
-	capf = !git commit --amend --no-edit --reset-author && git push -f origin HEAD
-	cb = checkout -b
+    cb = checkout -b
 	cd = diff-tree --no-commit-id --name-only -r
 	co = checkout
 	cm = checkout master
-	cp = cherry-pick
-	cpc = cherry-pick --continue
+    cp = cherry-pick
+    cpc = cherry-pick --continue
+    c- = checkout --
 	d = diff
 	dc = diff --cached
 	dt = difftool
@@ -23,26 +22,26 @@
 	la = "!git config -l | grep alias | cut -c 7-"
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lo = log --oneline
-	nb = checkout -B
+	lp = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+	ls = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
 	p = push
 	ph = push origin HEAD
 	phf = push -f origin HEAD
 	pm = pull origin master
 	po = pull origin
-	rb = rebase
-	rbc = rebase --continue
-	rbom = rebase origin/master
-	rbs = rebase --skip
-	rH = reset HEAD
+    rb = rebase
+    rbc = rebase --continue
+    rbom = rebase origin/master
+    rbs = rebase --skip
+    rH = rebase HEAD
 	s = status --short
+    sh = stash
+    shp = stash pop
 	st = status
-	sh = stash
-	shp = stash pop
 	sui = submodule update --init
 	sur = submodule update --remote
 	u = update
 	update = !git fetch -ap && git pull origin
 
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = vim
